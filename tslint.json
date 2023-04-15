@@ -1,0 +1,10 @@
+{
+    "extends": ["@react-native-community", "tslint-config-prettier"],
+    "rules": {
+      "interface-name": [true, "never-prefix"]
+    },
+    "linterOptions": {
+      "exclude": ["**/*.js"]
+    }
+  }
+  
