@@ -7,20 +7,22 @@ import ProductDesc from '../components/ProductDesc'
 import { addCartItem, fetchAllCartItems } from '../ApiCalls/cartApis'
 import { useDispatch } from 'react-redux'
 import { useState } from 'react'
+import { IProductDetailsProps } from '../interfaces/productInterfaces'
+import { IAddToCartPayload } from '../interfaces/cartInterfaces'
 
 
-const ProductDetails = ({route,navigation}) => {
+const ProductDetails = ({route,navigation}:IProductDetailsProps) => {
    
     const productData = route.params
     
     const dispatch = useDispatch()
-    const [quantity,setQuantity] = useState(1)
-    const [buttonLoader,setButtonLoader] = useState(false)
+    const [quantity,setQuantity] = useState<number>(1)
+    const [buttonLoader,setButtonLoader] = useState<boolean>(false)
     
     const handleAddItemToCart=()=>{
       
         setButtonLoader(true);
-        let payloadData = {
+        let payloadData :IAddToCartPayload = {
           quantity,
           product: {
             name: productData.name,

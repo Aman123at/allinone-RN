@@ -5,8 +5,9 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { truncate } from '../utils/commonUtils';
 import { useSelector } from 'react-redux';
 import { getDarkMode } from '../redux/slices/userSlice';
-const ModernProductCard = ({pImage,title,totalsold,avgRating, price,id,nav,product}) => {
-  const darkmode = useSelector(getDarkMode)
+import {IModernProductCardProps} from '../interfaces/productInterfaces';
+const ModernProductCard = ({pImage,title, price,id,nav,product}:IModernProductCardProps) => {
+  const darkmode:boolean = useSelector(getDarkMode)
   return (
     <VStack key={id} margin={3}>
         <TouchableOpacity onPress={()=>nav.navigate("Product",product)} >

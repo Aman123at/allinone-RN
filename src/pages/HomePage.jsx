@@ -1,4 +1,4 @@
-import { Dimensions, View } from 'react-native'
+import { Dimensions, SafeAreaView, View } from 'react-native'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getAllProducts } from '../redux/slices/productSlice'
@@ -59,12 +59,12 @@ const HomePage = (props) => {
       
      
   return (
-    
-      
-      <NativeBaseProvider   >
+  <NativeBaseProvider>
         {loading ? 
        <Loader />
        :
+       <SafeAreaView>
+
         <VStack height="100%" bgColor={darkmode?'coolGray.800':'white'}   display="flex" flexDirection="column" >
 
         <AppBar  nav={props.navigation} />
@@ -79,6 +79,7 @@ const HomePage = (props) => {
         </ScrollView>
         <BottomNavBar nav={props.navigation}  />
         </VStack>
+       </SafeAreaView>
         }
 
        
